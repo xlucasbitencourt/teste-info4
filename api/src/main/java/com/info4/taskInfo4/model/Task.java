@@ -13,11 +13,11 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotNull
+    @NotNull(message = "Title is required")
     @Column(nullable = false)
     private String title;
 
-    @NotNull
+    @NotNull(message = "Description is required")
     @Column(nullable = false)
     private String description;
 
