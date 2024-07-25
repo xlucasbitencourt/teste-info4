@@ -1,4 +1,5 @@
 import { Accordion, Badge, Button, Card } from "flowbite-react";
+import { Link } from "react-router-dom";
 import { TaskResponse } from "../types";
 
 type Props = {
@@ -8,6 +9,13 @@ type Props = {
 };
 
 export default function TasksList({ tasks, completeTask, removeTask }: Props) {
+  if (!tasks.length) {
+    return (
+      <p className="text-xl text-center">
+        You don't have any tasks. Click <Link to="/">here</Link> to create tasks.
+      </p>
+    );
+  }
   return (
     <Accordion collapseAll alwaysOpen>
       {tasks.map((task) => (

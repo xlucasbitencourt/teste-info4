@@ -46,7 +46,7 @@ export default function TaskForm({
           rows={4}
           color={!description ? "failure" : ""}
           helperText={description ? "" : "Description is required"}
-          maxLength={300}
+          maxLength={250}
         />
       </div>
 
