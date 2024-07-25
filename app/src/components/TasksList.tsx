@@ -1,5 +1,5 @@
 import { Accordion } from "flowbite-react";
-import { Button } from "flowbite-react";
+import { Button, Card } from "flowbite-react";
 import { TaskResponse } from "../types";
 
 type Props = {
@@ -19,9 +19,10 @@ export default function TasksList({ tasks, completeTask, removeTask }: Props) {
             </p>
           </Accordion.Title>
           <Accordion.Content>
-            <div className="flex flex-col gap-2">
-              <p className="italic text-lg">{task.description}</p>
+            <Card className={`${task.completed ? "bg-green-100" : "bg-gray-100"}`}>
+              <p className="italic text-lg mb-4">{task.description}</p>
               <Button
+                className="-mb-3"
                 onClick={() => completeTask(task)}
                 disabled={task.completed}
                 gradientMonochrome="success"
@@ -37,7 +38,7 @@ export default function TasksList({ tasks, completeTask, removeTask }: Props) {
               >
                 {task.completed ? "Delete task" : "Complete task first"}
               </Button>
-            </div>
+            </Card>
           </Accordion.Content>
         </Accordion.Panel>
       ))}
