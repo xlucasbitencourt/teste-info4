@@ -3,3 +3,8 @@ export interface TaskRequest {
   description: string;
   completed?: boolean;
 }
+
+export interface TaskResponse extends TaskRequest {
+  id: number;
+  completed: boolean;
+}
