@@ -5,7 +5,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Column;
+import jakarta.persistence.PrePersist;
 import jakarta.validation.constraints.NotNull;
+
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 public class Task {
@@ -22,6 +26,15 @@ public class Task {
     private String description;
 
     private boolean completed;
+
+    @Column(nullable = false)
+    private String date;
+
+    @PrePersist
+    protected void onCreate() {
+        ZonedDateTime now = ZonedDateTime.now();
+        date = now.format(DateTimeFormatter.ISO_ZONED_DATE_TIME);
+    }
 
     // Getters and Setters
     public Long getId() {
@@ -54,5 +67,13 @@ public class Task {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }
