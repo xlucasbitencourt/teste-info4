@@ -1,5 +1,4 @@
-import { Accordion } from "flowbite-react";
-import { Button, Card } from "flowbite-react";
+import { Accordion, Badge, Button, Card } from "flowbite-react";
 import { TaskResponse } from "../types";
 
 type Props = {
@@ -14,8 +13,8 @@ export default function TasksList({ tasks, completeTask, removeTask }: Props) {
       {tasks.map((task) => (
         <Accordion.Panel key={task.id}>
           <Accordion.Title>
-            <p className={`text-xl ${task.completed && "text-green-600"}`}>
-              {task.title}
+            <p className={`text-xl flex gap-2 ${task.completed && "text-green-600"}`}>
+              {task.title} {task.completed && <Badge color="success">Completed</Badge>}
             </p>
           </Accordion.Title>
           <Accordion.Content>
