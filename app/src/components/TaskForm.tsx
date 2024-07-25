@@ -44,7 +44,7 @@ export default function TaskForm({
         />
       </div>
 
-      <Button type="submit" size="lg" gradientMonochrome="lime">
+      <Button type="submit" size="lg" gradientMonochrome="lime" pill>
         Create
       </Button>
     </form>
