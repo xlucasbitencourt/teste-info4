@@ -7,4 +7,5 @@ export interface TaskRequest {
 export interface TaskResponse extends TaskRequest {
   id: number;
   completed: boolean;
+  date: string;
 }

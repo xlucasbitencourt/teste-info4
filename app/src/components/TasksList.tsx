@@ -1,6 +1,7 @@
 import { Accordion, Badge, Button, Card } from "flowbite-react";
 import { Link } from "react-router-dom";
 import { TaskResponse } from "../types";
+import { formatDate } from "../util";
 
 type Props = {
   tasks: TaskResponse[];
@@ -28,6 +29,7 @@ export default function TasksList({ tasks, completeTask, removeTask }: Props) {
           <Accordion.Content>
             <Card className={`${task.completed ? "bg-green-100" : "bg-gray-100"}`}>
               <p className="italic text-lg mb-4">{task.description}</p>
+              <p className="text-right">Created: <span>{formatDate(task.date)}</span></p>
               <Button
                 className="-mb-3"
                 onClick={() => completeTask(task)}
