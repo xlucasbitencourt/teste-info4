@@ -24,7 +24,7 @@ export default function TasksList({ tasks, completeTask, removeTask }: Props) {
               <Button
                 onClick={() => completeTask(task)}
                 disabled={task.completed}
-                color="success"
+                gradientMonochrome="success"
                 pill
               >
                 {task.completed ? "Completed" : "Mark as completed"}
@@ -32,7 +32,7 @@ export default function TasksList({ tasks, completeTask, removeTask }: Props) {
               <Button
                 onClick={() => removeTask(task.id)}
                 disabled={!task.completed}
-                color="failure"
+                gradientMonochrome="failure"
                 pill
               >
                 {task.completed ? "Delete task" : "Complete task first"}
