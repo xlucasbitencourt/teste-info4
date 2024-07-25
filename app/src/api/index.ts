@@ -9,7 +9,7 @@ export const getTasks = async () => {
   return await api.get("/tasks");
 };
 
-export const getTask = async (id: string) => {
+export const getTask = async (id: number) => {
   return await api.get(`/tasks/${id}`);
 };
 
@@ -17,10 +17,10 @@ export const createTask = async (task: TaskRequest) => {
   return await api.post("/tasks", task);
 };
 
-export const updateTask = async (id: string, task: TaskRequest) => {
+export const updateTask = async (id: number, task: TaskRequest) => {
   return await api.put(`/tasks/${id}`, task);
 };
 
-export const deleteTask = async (id: string) => {
+export const deleteTask = async (id: number) => {
   return await api.delete(`/tasks/${id}`);
 };
