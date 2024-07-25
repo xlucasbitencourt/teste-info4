@@ -19,7 +19,7 @@ export default function TaskForm({
     <form onSubmit={handleSubmit} className="flex max-w-lg flex-col gap-4 mx-auto">
       <div>
         <div className="mb-2 block">
-          <Label htmlFor="title" value="Title" />
+          <Label htmlFor="title" value="Title" color={!title ? "failure" : ""} />
         </div>
         <TextInput
           value={title}
@@ -28,11 +28,14 @@ export default function TaskForm({
           type="text"
           placeholder="Title..."
           required
+          color={!title ? "failure" : ""}
+          helperText={title ? "" : "Title is required"}
+          maxLength={50}
         />
       </div>
       <div>
         <div className="mb-2 block">
-          <Label htmlFor="description" value="Description" />
+          <Label htmlFor="description" value="Description" color={!description ? "failure" : ""} />
         </div>
         <Textarea
           value={description}
@@ -41,6 +44,9 @@ export default function TaskForm({
           placeholder="Describe your task..."
           required
           rows={4}
+          color={!description ? "failure" : ""}
+          helperText={description ? "" : "Description is required"}
+          maxLength={300}
         />
       </div>
 
