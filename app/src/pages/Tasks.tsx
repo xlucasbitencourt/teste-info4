@@ -33,8 +33,10 @@ export default function Tasks() {
 
   return (
     <div>
-      <h1>Tasks</h1>
-      <h2>Click in the title to open</h2>
+      <div className="flex flex-col items-center gap-2 mb-5">
+        <h1 className="text-4xl font-bold">Tasks</h1>
+        <h2 className="text-3xl">Click in the title to open</h2>
+      </div>
       {loading ? (
         <div className="text-center">
           <Spinner size="xl" />
